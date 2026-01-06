@@ -1,5 +1,5 @@
 <?php
-include"conn.php";
+include __DIR__ . "/conn.php";
 $getstate=$_GET['status'];
 if($getstate=="register"){
 $username=strip_tags($_POST['username']);
@@ -27,7 +27,7 @@ if ($emailLog != "" && $pass != ""){
 
     $sql_query = "select * from member where (member_mail='".$emailLog."' AND member_password='".$passwordLog."')";
     $result = mysqli_query($conn,$sql_query);
-	while($fetch=mysqli_fetch_assoc($result)){
+	while($fetch=enc_fetch_assoc($result)){
 $num=mysqli_num_rows($result);
 $mail=$fetch['member_mail'];
 $member_name=$fetch['member_name'];
@@ -50,7 +50,7 @@ $txtAboutTitle=addslashes($_POST['txtAboutTitle']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txtAboutTitle."' ,Manager_mail='".$membermail."' where (post_code='About Introduction Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Introduction Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutTitle=$fetch['post'];
 	echo $fetchAboutTitle;
 
@@ -63,7 +63,7 @@ $txtAboutTitleDesc=addslashes($_POST['txtAboutTitleDesc']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txtAboutTitleDesc."' ,Manager_mail='".$membermail."' where (post_code='About Introduction Description' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Introduction Description' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutTitleDescriotion=$fetch['post'];
 	echo $fetchAboutTitleDescriotion;
 
@@ -75,7 +75,7 @@ $txtAboutTitle1=addslashes($_POST['txtAboutTitle1']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txtAboutTitle1."' ,Manager_mail='".$membermail."' where (post_code='About Title 1' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Title 1' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutTitle1=$fetch['post'];
 	echo $fetchAboutTitle1;
 
@@ -88,7 +88,7 @@ $txtTitleAbDesc1=addslashes($_POST['txtTitleAbDesc1']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txtTitleAbDesc1."' ,Manager_mail='".$membermail."' where (post_code='About Title Desc 1' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Title Desc 1' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutTitleDesc1=$fetch['post'];
 	echo $fetchAboutTitleDesc1;
 
@@ -101,7 +101,7 @@ $txtAboutTitle2=addslashes($_POST['txtAboutTitle2']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txtAboutTitle2."' ,Manager_mail='".$membermail."' where (post_code='About Title 2' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Title 2' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutTitle2=$fetch['post'];
 	echo $fetchAboutTitle2;
 
@@ -114,7 +114,7 @@ $txtTitleAbDesc2=addslashes($_POST['txtTitleAbDesc2']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txtTitleAbDesc2."' ,Manager_mail='".$membermail."' where (post_code='About Title Desc 2' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Title Desc 2' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutTitleDesc2=$fetch['post'];
 	echo $fetchAboutTitleDesc2;
 
@@ -127,7 +127,7 @@ $txtAboutTitle3=addslashes($_POST['txtAboutTitle3']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txtAboutTitle3."' ,Manager_mail='".$membermail."' where (post_code='About Title 3' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Title 3' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutTitle3=$fetch['post'];
 	echo $fetchAboutTitle3;
 
@@ -140,7 +140,7 @@ $txtTitleAbDesc3=addslashes($_POST['txtTitleAbDesc3']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txtTitleAbDesc3."' ,Manager_mail='".$membermail."' where (post_code='About Title Desc 3' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Title Desc 3' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutTitleDesc3=$fetch['post'];
 	echo $fetchAboutTitleDesc3;
 
@@ -154,7 +154,7 @@ $txt_Services_caption=addslashes($_POST['txt_Services_caption']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_caption."' ,Manager_mail='".$membermail."' where (post_code='Index Services Caption' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Caption' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesCaption=$fetch['post'];
 	echo $fetchServicesCaption;
 
@@ -168,7 +168,7 @@ $txt_Services_Title1=addslashes($_POST['txt_Services_Title1']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_Title1."' ,Manager_mail='".$membermail."' where (post_code='Index Services Title 1' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Title 1' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesTitle1=$fetch['post'];
 	echo $fetchServicesTitle1;
 
@@ -181,7 +181,7 @@ $txt_Services_Desc1=addslashes($_POST['txt_Services_Desc1']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_Desc1."' ,Manager_mail='".$membermail."' where (post_code='Index Services Desc1' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Desc1' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesDesc1=$fetch['post'];
 	echo $fetchServicesDesc1;
 
@@ -194,7 +194,7 @@ $txt_Services_Title2=addslashes($_POST['txt_Services_Title2']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_Title2."' ,Manager_mail='".$membermail."' where (post_code='Index Services Title 2' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Title 2' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesTitle2=$fetch['post'];
 	echo $fetchServicesTitle2;
 
@@ -207,7 +207,7 @@ $txt_Services_Desc2=addslashes($_POST['txt_Services_Desc2']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_Desc2."' ,Manager_mail='".$membermail."' where (post_code='Index Services Desc2' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Desc2' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesDesc2=$fetch['post'];
 	echo $fetchServicesDesc2;
 
@@ -220,7 +220,7 @@ $txt_Services_Title3=addslashes($_POST['txt_Services_Title3']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_Title3."' ,Manager_mail='".$membermail."' where (post_code='Index Services Title 3' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Title 3' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesTitle3=$fetch['post'];
 	echo $fetchServicesTitle3;
 
@@ -233,7 +233,7 @@ $txt_Services_Desc3=addslashes($_POST['txt_Services_Desc3']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_Desc3."' ,Manager_mail='".$membermail."' where (post_code='Index Services Desc3' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Desc3' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesDesc3=$fetch['post'];
 	echo $fetchServicesDesc3;
 
@@ -246,7 +246,7 @@ $txt_Services_Title4=addslashes($_POST['txt_Services_Title4']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_Title4."' ,Manager_mail='".$membermail."' where (post_code='Index Services Title 4' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Title 4' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesTitle4=$fetch['post'];
 	echo $fetchServicesTitle4;
 
@@ -259,7 +259,7 @@ $txt_Services_Desc4=addslashes($_POST['txt_Services_Desc4']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Services_Desc4."' ,Manager_mail='".$membermail."' where (post_code='Index Services Desc4' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Services Desc4' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesDesc4=$fetch['post'];
 	echo $fetchServicesDesc4;
 
@@ -272,7 +272,7 @@ $txt_Features_Title=addslashes($_POST['txt_Features_Title']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Title."' ,Manager_mail='".$membermail."' where (post_code='Index Fearures Introduction' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Index Fearures Introduction' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesTitle=$fetch['post'];
 	echo $fetchFeaturesTitle;
 
@@ -285,7 +285,7 @@ $txt_Features_Title1=addslashes($_POST['txt_Features_Title1']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Title1."' ,Manager_mail='".$membermail."' where (post_code='Features Title1' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Title1' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesTitle1=$fetch['post'];
 	echo $fetchFeaturesTitle1;
 
@@ -298,7 +298,7 @@ $txt_Features_Desc1=addslashes($_POST['txt_Features_Desc1']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Desc1."' ,Manager_mail='".$membermail."' where (post_code='Features Desc1' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Desc1' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesDesc1=$fetch['post'];
 	echo $fetchFeaturesDesc1;
 
@@ -311,7 +311,7 @@ $txt_Features_Title2=addslashes($_POST['txt_Features_Title2']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Title2."' ,Manager_mail='".$membermail."' where (post_code='Features Title2' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Title2' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesTitle2=$fetch['post'];
 	echo $fetchFeaturesTitle2;
 
@@ -324,7 +324,7 @@ $txt_Features_Desc2=addslashes($_POST['txt_Features_Desc2']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Desc2."' ,Manager_mail='".$membermail."' where (post_code='Features Desc2' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Desc2' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesDesc2=$fetch['post'];
 	echo $fetchFeaturesDesc2;
 
@@ -337,7 +337,7 @@ $txt_Features_Title3=addslashes($_POST['txt_Features_Title3']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Title3."' ,Manager_mail='".$membermail."' where (post_code='Features Title3' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Title3' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesTitle3=$fetch['post'];
 	echo $fetchFeaturesTitle3;
 
@@ -350,7 +350,7 @@ $txt_Features_Desc3=addslashes($_POST['txt_Features_Desc3']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Desc3."' ,Manager_mail='".$membermail."' where (post_code='Features Desc3' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Desc3' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesDesc3=$fetch['post'];
 	echo $fetchFeaturesDesc3;
 
@@ -363,7 +363,7 @@ $txt_Features_Desc4=addslashes($_POST['txt_Features_Desc4']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Desc4."' ,Manager_mail='".$membermail."' where (post_code='Features Desc4' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Desc4' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesDesc4=$fetch['post'];
 	echo $fetchFeaturesDesc4;
 
@@ -376,7 +376,7 @@ $txt_Features_Title5=addslashes($_POST['txt_Features_Title5']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Title5."' ,Manager_mail='".$membermail."' where (post_code='Features Title5' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Title5' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesTitle5=$fetch['post'];
 	echo $fetchFeaturesTitle5;
 
@@ -389,7 +389,7 @@ $txt_Features_Desc5=addslashes($_POST['txt_Features_Desc5']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Desc5."' ,Manager_mail='".$membermail."' where (post_code='Features Desc5' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Desc5' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesDesc5=$fetch['post'];
 	echo $fetchFeaturesDesc5;
 
@@ -401,7 +401,7 @@ $txt_Features_Title6=addslashes($_POST['txt_Features_Title6']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Title6."' ,Manager_mail='".$membermail."' where (post_code='Features Title6' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Title6' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesTitle6=$fetch['post'];
 	echo $fetchFeaturesTitle6;
 
@@ -414,7 +414,7 @@ $txt_Features_Desc6=addslashes($_POST['txt_Features_Desc6']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Desc6."' ,Manager_mail='".$membermail."' where (post_code='Features Desc6' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Desc6' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesDesc6=$fetch['post'];
 	echo $fetchFeaturesDesc6;
 
@@ -427,7 +427,7 @@ $txt_Features_Title7=addslashes($_POST['txt_Features_Title7']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Title7."' ,Manager_mail='".$membermail."' where (post_code='Features Title7' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Title7' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesTitle7=$fetch['post'];
 	echo $fetchFeaturesTitle7;
 
@@ -439,7 +439,7 @@ $txt_Features_Desc7=addslashes($_POST['txt_Features_Desc7']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Features_Desc7."' ,Manager_mail='".$membermail."' where (post_code='Features Desc7' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Features Desc7' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFeaturesDesc7=$fetch['post'];
 	echo $fetchFeaturesDesc7;
 
@@ -452,7 +452,7 @@ $txt_Quote_Title1=addslashes($_POST['txt_Quote_Title1']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Quote_Title1."' ,Manager_mail='".$membermail."' where (post_code='Quote Index Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Quote Index Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchQuoteTitle1=$fetch['post'];
 	echo $fetchQuoteTitle1;
 
@@ -465,7 +465,7 @@ $txt_Quote_Desc1=addslashes($_POST['txt_Quote_Desc1']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Quote_Desc1."' ,Manager_mail='".$membermail."' where (post_code='Quote Index Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Quote Index Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchQuoteDesc1=$fetch['post'];
 	echo $fetchQuoteDesc1;
 
@@ -527,7 +527,7 @@ $txt_Ourteam_Intro=addslashes($_POST['txt_Ourteam_Intro']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Ourteam_Intro."' ,Manager_mail='".$membermail."' where (post_code='Ourteam Intro' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Ourteam Intro' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchOurTeamIntro=$fetch['post'];
 	echo $fetchOurTeamIntro;
 
@@ -540,7 +540,7 @@ $txt_Ourteam_Title=addslashes($_POST['txt_Ourteam_Title']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Ourteam_Title."' ,Manager_mail='".$membermail."' where (post_code='OurTeam Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='OurTeam Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchOurTeamTitle=$fetch['post'];
 	echo $fetchOurTeamTitle;
 
@@ -553,7 +553,7 @@ $txt_OurTeam_Desc=addslashes($_POST['txt_OurTeam_Desc']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_OurTeam_Desc."' ,Manager_mail='".$membermail."' where (post_code='OurTeam Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='OurTeam Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchOurTeamDesc=$fetch['post'];
 	echo $fetchOurTeamDesc;
 
@@ -566,7 +566,7 @@ $txt_Ourclient_Title=addslashes($_POST['txt_Ourclient_Title']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Ourclient_Title."' ,Manager_mail='".$membermail."' where (post_code='OurClient Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='OurClient Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchOurClientTitle=$fetch['post'];
 	echo $fetchOurClientTitle;
 
@@ -579,7 +579,7 @@ $txt_OurClient_Desc=addslashes($_POST['txt_OurClient_Desc']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_OurClient_Desc."' ,Manager_mail='".$membermail."' where (post_code='OurClient Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='OurClient Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchOurClientDesc=$fetch['post'];
 	echo $fetchOurClientDesc;
 
@@ -592,7 +592,7 @@ $txt_News_Title=addslashes($_POST['txt_News_Title']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_News_Title."' ,Manager_mail='".$membermail."' where (post_code='News Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='News Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchNewstTitle=$fetch['post'];
 	echo $fetchNewstTitle;
 
@@ -605,7 +605,7 @@ $txt_Footer_Title=addslashes($_POST['txt_Footer_Title']);
 $membermail=$_SESSION['email'];
 $updateAboutTitle=mysqli_query($conn,"update posts set post='".$txt_Footer_Title."' ,Manager_mail='".$membermail."' where (post_code='Footer Intro' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Footer Intro' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchFootertTitle=$fetch['post'];
 	echo $fetchFootertTitle;
 
@@ -1102,7 +1102,7 @@ $txt_AboutPage_Welcome_Title=addslashes($_POST['txt_AboutPage_Welcome']);
 $membermail=$_SESSION['email'];
 $updateAboutPageWelcomeTitle=mysqli_query($conn,"update posts set post='".$txt_AboutPage_Welcome_Title."' ,Manager_mail='".$membermail."' where (post_code='About Page Welcome To' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Page Welcome To ' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageWelcomeTitle=$fetch['post'];
 	echo $fetchAboutPageWelcomeTitle;
 
@@ -1115,7 +1115,7 @@ $txt_AboutPage_Welcome_ENC=addslashes($_POST['txt_AboutPage_Welcome_ENC']);
 $membermail=$_SESSION['email'];
 $updateAboutPageWelcomeTitle=mysqli_query($conn,"update posts set post='".$txt_AboutPage_Welcome_ENC."' ,Manager_mail='".$membermail."' where (post_code='ENC About Page' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='ENC About Page' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageWelcomeTitleEnc=$fetch['post'];
 	echo $fetchAboutPageWelcomeTitleEnc;
 
@@ -1128,7 +1128,7 @@ $txt_AboutPage_Welcome_ENC_Title=addslashes($_POST['txt_AboutPage_Welcome_ENC_Ti
 $membermail=$_SESSION['email'];
 $updateAboutPageWelcomeTitle1=mysqli_query($conn,"update posts set post='".$txt_AboutPage_Welcome_ENC_Title."' ,Manager_mail='".$membermail."' where (post_code='Welcome About Page Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Welcome About Page Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageWelcomeTitle1=$fetch['post'];
 	echo $fetchAboutPageWelcomeTitle1;
 
@@ -1141,7 +1141,7 @@ $txt_AboutPage_Welcome_ENC_Desc=addslashes($_POST['txt_AboutPage_Welcome_ENC_Des
 $membermail=$_SESSION['email'];
 $updateAboutPageWelcomeDesc1=mysqli_query($conn,"update posts set post='".$txt_AboutPage_Welcome_ENC_Desc."' ,Manager_mail='".$membermail."' where (post_code='AboutPage Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='AboutPage Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageWelcomeDesc1=$fetch['post'];
 	echo $fetchAboutPageWelcomeDesc1;
 
@@ -1154,7 +1154,7 @@ $txt_AboutPage_Business_Title=addslashes($_POST['txt_AboutPage_Business_Title'])
 $membermail=$_SESSION['email'];
 $updateAboutPageBusinessTitle=mysqli_query($conn,"update posts set post='".$txt_AboutPage_Business_Title."' ,Manager_mail='".$membermail."' where (post_code='About Page Business Planning Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='About Page Business Planning Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageBusinessTitle=$fetch['post'];
 	echo $fetchAboutPageBusinessTitle;
 
@@ -1167,7 +1167,7 @@ $txt_AboutPage_Business_Desc=addslashes($_POST['txt_AboutPage_Business_Desc']);
 $membermail=$_SESSION['email'];
 $updateAboutPageBusinessDesc=mysqli_query($conn,"update posts set post='".$txt_AboutPage_Business_Desc."' ,Manager_mail='".$membermail."' where (post_code='Business Desc About Page' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Business Desc About Page' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageBusinessDesc=$fetch['post'];
 	echo $fetchAboutPageBusinessDesc;
 
@@ -1180,7 +1180,7 @@ $txt_AboutPage_FinalAnalaysis_Title=addslashes($_POST['txt_AboutPage_FinalAnalay
 $membermail=$_SESSION['email'];
 $updateAboutPageFinancialAnalaysisTitle=mysqli_query($conn,"update posts set post='".$txt_AboutPage_FinalAnalaysis_Title."' ,Manager_mail='".$membermail."' where (post_code='Financial Analaysis Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Financial Analaysis Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageFinancialTitle=$fetch['post'];
 	echo $fetchAboutPageFinancialTitle;
 
@@ -1193,7 +1193,7 @@ $txt_AboutPage_FinancialAnalaysis_Desc=addslashes($_POST['txt_AboutPage_Financia
 $membermail=$_SESSION['email'];
 $updateAboutPageFinancialAnalaysisTitle=mysqli_query($conn,"update posts set post='".$txt_AboutPage_FinancialAnalaysis_Desc."' ,Manager_mail='".$membermail."' where (post_code='Financial Analaysis Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Financial Analaysis Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageFinancialDesc=$fetch['post'];
 	echo $fetchAboutPageFinancialDesc;
 
@@ -1206,7 +1206,7 @@ $txt_AboutPage_LegalAdvisory_Title=addslashes($_POST['txt_AboutPage_LegalAdvisor
 $membermail=$_SESSION['email'];
 $updateAboutPageLegalAdvisoryTitle=mysqli_query($conn,"update posts set post='".$txt_AboutPage_LegalAdvisory_Title."' ,Manager_mail='".$membermail."' where (post_code='Legal Advisory Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Legal Advisory Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageLegalAdvisoryTitle=$fetch['post'];
 	echo $fetchAboutPageLegalAdvisoryTitle;
 
@@ -1219,7 +1219,7 @@ $txt_AboutPage_LegalAdvisory_Desc=addslashes($_POST['txt_AboutPage_LegalAdvisory
 $membermail=$_SESSION['email'];
 $updateAboutPageLegalAdvisoryDesc=mysqli_query($conn,"update posts set post='".$txt_AboutPage_LegalAdvisory_Desc."' ,Manager_mail='".$membermail."' where (post_code='Legal Advisory Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Legal Advisory Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchAboutPageLegalAdvisoryDesc=$fetch['post'];
 	echo $fetchAboutPageLegalAdvisoryDesc;
 
@@ -1233,7 +1233,7 @@ $txt_ServicesPage_Prof_Services_Title=addslashes($_POST['txt_ServicesPage_Prof_S
 $membermail=$_SESSION['email'];
 $updateServicesPageProfServicesTitle=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_Prof_Services_Title."' ,Manager_mail='".$membermail."' where (post_code='ENC Prof Services Services Page' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='ENC Prof Services Services Page' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$ENC_Prof_Services_Services_PageTitle=$fetch['post'];
 	echo $ENC_Prof_Services_Services_PageTitle;
 
@@ -1246,7 +1246,7 @@ $txt_ServicesPage_ProfServices_Desc=addslashes($_POST['txt_ServicesPage_ProfServ
 $membermail=$_SESSION['email'];
 $updateServicesPageProfServicesDesc=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_ProfServices_Desc."' ,Manager_mail='".$membermail."' where (post_code='Prof Services Services Page Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Prof Services Services Page Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageProfServicesDesc=$fetch['post'];
 	echo $fetchServicesPageProfServicesDesc;
 
@@ -1259,7 +1259,7 @@ $txt_ENC_PPDIOO_Services_Page_Title=addslashes($_POST['txt_ENC_PPDIOO_Services_P
 $membermail=$_SESSION['email'];
 $updateServicesPagePPDIOODesc=mysqli_query($conn,"update posts set post='".$txt_ENC_PPDIOO_Services_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='PPDIOO Services Page Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='PPDIOO Services Page Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPagePPDIOOTitle=$fetch['post'];
 	echo $fetchServicesPagePPDIOOTitle;
 
@@ -1272,7 +1272,7 @@ $txt_ServicesPage_PPDIOO_Desc=addslashes($_POST['txt_ServicesPage_PPDIOO_Desc'])
 $membermail=$_SESSION['email'];
 $updateServicesPagePPDIOODesc=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_PPDIOO_Desc."' ,Manager_mail='".$membermail."' where (post_code='PPDIOO Services Page Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='PPDIOO Services Page Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPagePPDIOODesc=$fetch['post'];
 	echo $fetchServicesPagePPDIOODesc;
 
@@ -1285,7 +1285,7 @@ $txt_ENC_SLAResident_Services_Page_Title=addslashes($_POST['txt_ENC_SLAResident_
 $membermail=$_SESSION['email'];
 $updateServicesPagePPDIOODesc=mysqli_query($conn,"update posts set post='".$txt_ENC_SLAResident_Services_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='SLA Resident Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='SLA Resident Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageSLAResidentTitle=$fetch['post'];
 	echo $fetchServicesPageSLAResidentTitle;
 
@@ -1298,7 +1298,7 @@ $txt_ServicesPage_SLAResident_Desc=addslashes($_POST['txt_ServicesPage_SLAReside
 $membermail=$_SESSION['email'];
 $updateServicesPageSLAResidentDesc=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_SLAResident_Desc."' ,Manager_mail='".$membermail."' where (post_code='SLA Resident Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='SLA Resident Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageSLAResidentDesc=$fetch['post'];
 	echo $fetchServicesPageSLAResidentDesc;
 
@@ -1311,7 +1311,7 @@ $txt_ENC_HelpDesk_Services_Page_Title=addslashes($_POST['txt_ENC_HelpDesk_Servic
 $membermail=$_SESSION['email'];
 $updateServicesPageHelpDeskTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_HelpDesk_Services_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Helpdesk Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Helpdesk Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageHelpDeskTitle=$fetch['post'];
 	echo $fetchServicesPageHelpDeskTitle;
 
@@ -1324,7 +1324,7 @@ $txt_ServicesPage_HelpDesk_Desc=addslashes($_POST['txt_ServicesPage_HelpDesk_Des
 $membermail=$_SESSION['email'];
 $updateServicesPageSLAResidentDesc=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_HelpDesk_Desc."' ,Manager_mail='".$membermail."' where (post_code='Helpdesk Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Helpdesk Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageHelpDeskDesc=$fetch['post'];
 	echo $fetchServicesPageHelpDeskDesc;
 
@@ -1337,7 +1337,7 @@ $txt_ENC_GlobalField_Services_Page_Title=addslashes($_POST['txt_ENC_GlobalField_
 $membermail=$_SESSION['email'];
 $updateServicesPageGlobalFieldTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_GlobalField_Services_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Global Field Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Global Field Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageGlobalFieldTitle=$fetch['post'];
 	echo $fetchServicesPageGlobalFieldTitle;
 
@@ -1350,7 +1350,7 @@ $txt_ServicesPage_GlobalField_Desc=addslashes($_POST['txt_ServicesPage_GlobalFie
 $membermail=$_SESSION['email'];
 $updateServicesPageGlobalFieldDesc=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_GlobalField_Desc."' ,Manager_mail='".$membermail."' where (post_code='Global Field Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Global Field Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageGlobalFieldDesc=$fetch['post'];
 	echo $fetchServicesPageGlobalFieldDesc;
 
@@ -1362,7 +1362,7 @@ $txt_ENC_GlobalProf_Services_Page_Title=addslashes($_POST['txt_ENC_GlobalProf_Se
 $membermail=$_SESSION['email'];
 $updateServicesPageGlobalFieldTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_GlobalProf_Services_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Global Professional Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Global Professional Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageGlobalProfTitle=$fetch['post'];
 	echo $fetchServicesPageGlobalProfTitle;
 
@@ -1375,7 +1375,7 @@ $txt_ServicesPage_GlobalProf_Desc=addslashes($_POST['txt_ServicesPage_GlobalProf
 $membermail=$_SESSION['email'];
 $updateServicesPageGlobalFieldDesc=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_GlobalProf_Desc."' ,Manager_mail='".$membermail."' where (post_code='Global Professional Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Global Professional Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageGlobalProfDesc=$fetch['post'];
 	echo $fetchServicesPageGlobalProfDesc;
 
@@ -1388,7 +1388,7 @@ $txt_ENC_Penetrationtesting_Services_Page_Title=addslashes($_POST['txt_ENC_Penet
 $membermail=$_SESSION['email'];
 $updateServicesPenetrationTestingFieldTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_Penetrationtesting_Services_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Penetration Testing Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Penetration Testing Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPagePenetrationTestingTitle=$fetch['post'];
 	echo $fetchServicesPagePenetrationTestingTitle;
 
@@ -1401,7 +1401,7 @@ $txt_ServicesPage_PenetrationTesting_Desc=addslashes($_POST['txt_ServicesPage_Pe
 $membermail=$_SESSION['email'];
 $updateServicesPenetrationTestingFieldTitle=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_PenetrationTesting_Desc."' ,Manager_mail='".$membermail."' where (post_code='Penetration Testing Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Penetration Testing Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPagePenetrationTestingDesc=$fetch['post'];
 	echo $fetchServicesPagePenetrationTestingDesc;
 
@@ -1414,7 +1414,7 @@ $txt_ENC_HumanResource_Services_Page_Title=addslashes($_POST['txt_ENC_HumanResou
 $membermail=$_SESSION['email'];
 $updateServicesHumanResourceTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_HumanResource_Services_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Human Resource Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Human Resource Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageHumanResourceTitle=$fetch['post'];
 	echo $fetchServicesPageHumanResourceTitle;
 
@@ -1426,7 +1426,7 @@ $txt_ServicesPage_HumanResource_Desc=addslashes($_POST['txt_ServicesPage_HumanRe
 $membermail=$_SESSION['email'];
 $updateServicesHumanResourceDesc=mysqli_query($conn,"update posts set post='".$txt_ServicesPage_HumanResource_Desc."' ,Manager_mail='".$membermail."' where (post_code='Human Resource Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Human Resource Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchServicesPageHumanResourceDesc=$fetch['post'];
 	echo $fetchServicesPageHumanResourceDesc;
 
@@ -1759,7 +1759,7 @@ $txt_ENC_NetworkSecurity_Solution_Page_Title=addslashes($_POST['txt_ENC_NetworkS
 $membermail=$_SESSION['email'];
 $updateSolutionNetworkSecurityTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_NetworkSecurity_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Network Security Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Network Security Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageNetworkSecurityTitle=$fetch['post'];
 	echo $fetchSolutionPageNetworkSecurityTitle;
 
@@ -1772,7 +1772,7 @@ $txt_SolutionPage_NetworkSecurity_Desc=addslashes($_POST['txt_SolutionPage_Netwo
 $membermail=$_SESSION['email'];
 $updateSolutionNetworkSecurityDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_NetworkSecurity_Desc."' ,Manager_mail='".$membermail."' where (post_code='Network Security Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Network Security Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageNetworkSecurityDesc=$fetch['post'];
 	echo $fetchSolutionPageNetworkSecurityDesc;
 
@@ -1785,7 +1785,7 @@ $txt_ENC_IPTelephony_Solution_Page_Title=addslashes($_POST['txt_ENC_IPTelephony_
 $membermail=$_SESSION['email'];
 $updateSolutionIPTelephonyTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_IPTelephony_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='IP Telephony Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='IP Telephony Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageIPTelephonyTitle=$fetch['post'];
 	echo $fetchSolutionPageIPTelephonyTitle;
 
@@ -1798,7 +1798,7 @@ $txt_SolutionPage_IPTelephony_Desc=addslashes($_POST['txt_SolutionPage_IPTelepho
 $membermail=$_SESSION['email'];
 $updateSolutionIPTelephonyDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_IPTelephony_Desc."' ,Manager_mail='".$membermail."' where (post_code='IP Telephony Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='IP Telephony Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageIPTelephonyDesc=$fetch['post'];
 	echo $fetchSolutionPageIPTelephonyDesc;
 
@@ -1811,7 +1811,7 @@ $txt_ENC_Routing_Solution_Page_Title=addslashes($_POST['txt_ENC_Routing_Solution
 $membermail=$_SESSION['email'];
 $updateSolutionRoutingTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_Routing_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Routing Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Routing Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageRoutingTitle=$fetch['post'];
 	echo $fetchSolutionPageRoutingTitle;
 
@@ -1824,7 +1824,7 @@ $txt_SolutionPage_Routing_Desc=addslashes($_POST['txt_SolutionPage_Routing_Desc'
 $membermail=$_SESSION['email'];
 $updateSolutionRoutingDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_Routing_Desc."' ,Manager_mail='".$membermail."' where (post_code='Routing Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Routing Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageRoutingDesc=$fetch['post'];
 	echo $fetchSolutionPageRoutingDesc;
 
@@ -1837,7 +1837,7 @@ $txt_ENC_Wireless_Solution_Page_Title=addslashes($_POST['txt_ENC_Wireless_Soluti
 $membermail=$_SESSION['email'];
 $updateSolutionWirelessTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_Wireless_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Wireless Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Wireless Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageWirelessTitle=$fetch['post'];
 	echo $fetchSolutionPageWirelessTitle;
 
@@ -1850,7 +1850,7 @@ $txt_SolutionPage_Wireless_Desc=addslashes($_POST['txt_SolutionPage_Wireless_Des
 $membermail=$_SESSION['email'];
 $updateSolutionWirelessDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_Wireless_Desc."' ,Manager_mail='".$membermail."' where (post_code='Wireless Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Wireless Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageWirelessDesc=$fetch['post'];
 	echo $fetchSolutionPageWirelessDesc;
 
@@ -1863,7 +1863,7 @@ $txt_ENC_DataCenters_Solution_Page_Title=addslashes($_POST['txt_ENC_DataCenters_
 $membermail=$_SESSION['email'];
 $updateSolutionDataCentersTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_DataCenters_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Data Centers Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Data Centers Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageDataCenterTitle=$fetch['post'];
 	echo $fetchSolutionPageDataCenterTitle;
 
@@ -1876,7 +1876,7 @@ $txt_SolutionPage_DataCenters_Desc=addslashes($_POST['txt_SolutionPage_DataCente
 $membermail=$_SESSION['email'];
 $updateSolutionDataCentersDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_DataCenters_Desc."' ,Manager_mail='".$membermail."' where (post_code='Data Centers Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Data Centers Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageDataCentersDesc=$fetch['post'];
 	echo $fetchSolutionPageDataCentersDesc;
 
@@ -1889,7 +1889,7 @@ $txt_ENC_Server_Solution_Page_Title=addslashes($_POST['txt_ENC_Server_Solution_P
 $membermail=$_SESSION['email'];
 $updateSolutionServerTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_Server_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Server Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Server Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageServerTitle=$fetch['post'];
 	echo $fetchSolutionPageServerTitle;
 
@@ -1902,7 +1902,7 @@ $txt_SolutionPage_Server_Desc=addslashes($_POST['txt_SolutionPage_Server_Desc'])
 $membermail=$_SESSION['email'];
 $updateSolutionServerDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_Server_Desc."' ,Manager_mail='".$membermail."' where (post_code='Server Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Server Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageServerDesc=$fetch['post'];
 	echo $fetchSolutionPageServerDesc;
 
@@ -1915,7 +1915,7 @@ $txt_ENC_Security_Solution_Page_Title=addslashes($_POST['txt_ENC_Security_Soluti
 $membermail=$_SESSION['email'];
 $updateSolutionSecurityTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_Security_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Security Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Security Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageSecurityTitle=$fetch['post'];
 	echo $fetchSolutionPageSecurityTitle;
 
@@ -1928,7 +1928,7 @@ $txt_SolutionPage_Security_Desc=addslashes($_POST['txt_SolutionPage_Security_Des
 $membermail=$_SESSION['email'];
 $updateSolutionSecurityDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_Security_Desc."' ,Manager_mail='".$membermail."' where (post_code='Security Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Security Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageSecurityDesc=$fetch['post'];
 	echo $fetchSolutionPageSecurityDesc;
 
@@ -1941,7 +1941,7 @@ $txt_ENC_Virtualization_Solution_Page_Title=addslashes($_POST['txt_ENC_Virtualiz
 $membermail=$_SESSION['email'];
 $updateSolutionVirtualizationTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_Virtualization_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Virtualization Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Virtualization Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageVirtualizationTitle=$fetch['post'];
 	echo $fetchSolutionPageVirtualizationTitle;
 
@@ -1954,7 +1954,7 @@ $txt_SolutionPage_Virtualization_Desc=addslashes($_POST['txt_SolutionPage_Virtua
 $membermail=$_SESSION['email'];
 $updateSolutionSecurityDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_Virtualization_Desc."' ,Manager_mail='".$membermail."' where (post_code='Virtualization Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Virtualization Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageVirtualizationDesc=$fetch['post'];
 	echo $fetchSolutionPageVirtualizationDesc;
 
@@ -1967,7 +1967,7 @@ $txt_ENC_Power_Solution_Page_Title=addslashes($_POST['txt_ENC_Power_Solution_Pag
 $membermail=$_SESSION['email'];
 $updateSolutionPowerTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_Power_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Power Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Power Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPagePowerTitle=$fetch['post'];
 	echo $fetchSolutionPagePowerTitle;
 
@@ -1980,7 +1980,7 @@ $txt_SolutionPage_Power_Desc=addslashes($_POST['txt_SolutionPage_Power_Desc']);
 $membermail=$_SESSION['email'];
 $updateSolutionPowerDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_Power_Desc."' ,Manager_mail='".$membermail."' where (post_code='Power Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Power Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPagePowerDesc=$fetch['post'];
 	echo $fetchSolutionPagePowerDesc;
 
@@ -1993,7 +1993,7 @@ $txt_ENC_Software_Solution_Page_Title=addslashes($_POST['txt_ENC_Software_Soluti
 $membermail=$_SESSION['email'];
 $updateSolutionSoftwareTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_Software_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Software Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Software Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageSoftwareTitle=$fetch['post'];
 	echo $fetchSolutionPageSoftwareTitle;
 
@@ -2006,7 +2006,7 @@ $txt_SolutionPage_Software_Desc=addslashes($_POST['txt_SolutionPage_Software_Des
 $membermail=$_SESSION['email'];
 $updateSolutionSoftwareDesc=mysqli_query($conn,"update posts set post='".$txt_SolutionPage_Software_Desc."' ,Manager_mail='".$membermail."' where (post_code='Software Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Software Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageSoftwareDesc=$fetch['post'];
 	echo $fetchSolutionPageSoftwareDesc;
 
@@ -2019,7 +2019,7 @@ $txt_ENC_ENCMicrosoftSolution_Solution_Page_Title=addslashes($_POST['txt_ENC_ENC
 $membermail=$_SESSION['email'];
 $updateSolutionENCMicrosoftSolutionTitle=mysqli_query($conn,"update posts set post='".$txt_ENC_ENCMicrosoftSolution_Solution_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='ENC Microsoft Solution Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='ENC Microsoft Solution Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageENCMicrosoftSolutionTitle=$fetch['post'];
 	echo $fetchSolutionPageENCMicrosoftSolutionTitle;
 
@@ -2032,7 +2032,7 @@ $txt_ENCMicrosoftSolution_Solution_Page_Desc=addslashes($_POST['txt_ENCMicrosoft
 $membermail=$_SESSION['email'];
 $updateSolutionENCMicrosoftSolutionTitle=mysqli_query($conn,"update posts set post='".$txt_ENCMicrosoftSolution_Solution_Page_Desc."' ,Manager_mail='".$membermail."' where (post_code='ENC Microsoft Solution Desc' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='ENC Microsoft Solution Desc' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSolutionPageENCMicrosoftSolutionDesc=$fetch['post'];
 	echo $fetchSolutionPageENCMicrosoftSolutionDesc;
 
@@ -2536,7 +2536,7 @@ $txt_partnerParagraph_Desc=addslashes($_POST['txt_partnerParagraph_Desc']);
 $membermail=$_SESSION['email'];
 $partnerParagraph_Desc_update=mysqli_query($conn,"update posts set post='".$txt_partnerParagraph_Desc."' ,Manager_mail='".$membermail."' where (post_code='partnerParagraph' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='partnerParagraph' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnerParagraphDesc=$fetch['post'];
 	echo $fetchpartnerParagraphDesc;
 
@@ -2549,7 +2549,7 @@ $txt_partnerParagraph_Title=addslashes($_POST['txt_partnerParagraph_Title']);
 $membermail=$_SESSION['email'];
 $partnerParagraph_Title_update=mysqli_query($conn,"update posts set post='".$txt_partnerParagraph_Title."' ,Manager_mail='".$membermail."' where (post_code='Our Partnership Level Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Our Partnership Level Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnerParagraphTitle=$fetch['post'];
 	echo $fetchpartnerParagraphTitle;
 
@@ -2597,7 +2597,7 @@ $fileSql=$uploadPathSql.$resizeFileName . "." . $fileExt;
 if($getstate=="deletePartnership"){
 	$partnership=strip_tags($_POST['partnership']);
     $sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnership' And partner_group='OurPartnership')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnership=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnership);
 	$sql = "DELETE FROM partner WHERE partner_id='$partnership' And partner_group='OurPartnership'";
@@ -2652,7 +2652,7 @@ $fileSql=$uploadPathSql.$resizeFileName . "." . $fileExt;
 if($getstate=="deleteGlobal"){
 	$partnershipGlobal=strip_tags($_POST['partnershipGlobal']);
 	    $sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnershipGlobal' And partner_group='Global')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnershipGlobal=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnershipGlobal);
 $sql = "DELETE FROM partner WHERE partner_id='$partnershipGlobal' And partner_group='Global'";
@@ -2707,7 +2707,7 @@ $fileSql=$uploadPathSql.$resizeFileName . "." . $fileExt;
 if($getstate=="deleteSystem"){
 	$partnershipSystem=strip_tags($_POST['partnershipSystem']);
 		    $sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnershipSystem' And partner_group='System')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnershipSystem=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnershipSystem);
 $sql = "DELETE FROM partner WHERE partner_id='$partnershipSystem' And partner_group='System'";
@@ -2763,7 +2763,7 @@ if($getstate=="deleteNetwork"){
 	$partnershipNetwork=strip_tags($_POST['partnershipNetwork']);
 $sql = "DELETE FROM partner WHERE partner_id='$partnershipNetwork' And partner_group='Network'";
 	$sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnershipNetwork' And partner_group='Network')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnershipNetwork=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnershipNetwork);
 if (mysqli_query($conn, $sql)) {
@@ -2815,7 +2815,7 @@ if($getstate=="deleteNetworkPassive"){
 	$partnershipNetworkPassive=strip_tags($_POST['partnershipNetworkPassive']);
 $sql = "DELETE FROM partner WHERE partner_id='$partnershipNetworkPassive' And partner_group='NetworkPassive'";
 	$sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnershipNetworkPassive' And partner_group='NetworkPassive')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnershipNetworkP=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnershipNetworkP);
 if (mysqli_query($conn, $sql)) {
@@ -2868,7 +2868,7 @@ if($getstate=="deleteServerDesktop"){
 	$partnershipServerDesktop=strip_tags($_POST['partnershipServerDesktop']);
 $sql = "DELETE FROM partner WHERE partner_id='$partnershipServerDesktop' And partner_group='ServerDesktop'";
 $sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnershipServerDesktop' And partner_group='ServerDesktop')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnershipServer=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnershipServer);
 if (mysqli_query($conn, $sql)) {
@@ -2921,7 +2921,7 @@ if($getstate=="deleteSecurity"){
 	$partnershipSecurity=strip_tags($_POST['partnershipSecurity']);
 $sql = "DELETE FROM partner WHERE partner_id='$partnershipSecurity' And partner_group='Security'";
 $sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnershipSecurity' And partner_group='Security')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnershipSecurity=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnershipSecurity);
 if (mysqli_query($conn, $sql)) {
@@ -2974,7 +2974,7 @@ if($getstate=="deleteUPS"){
 	$partnershipUPS=strip_tags($_POST['partnershipUPS']);
 $sql = "DELETE FROM partner WHERE partner_id='$partnershipUPS' And partner_group='UPS'";
 $sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnershipUPS' And partner_group='UPS')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnershipUPS=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnershipUPS);
 if (mysqli_query($conn, $sql)) {
@@ -3028,7 +3028,7 @@ if($getstate=="deleteNetworkManage"){
 	$partnershipNetworkManage=strip_tags($_POST['partnershipNetworkManage']);
 $sql = "DELETE FROM partner WHERE partner_id='$partnershipNetworkManage' And partner_group='NetworkManage'";
 $sql_query = mysqli_query($conn,"select * from partner where (partner_id='$partnershipNetworkManage' And partner_group='NetworkManage')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchpartnershipNetworkManage=$fetch['partner_img'];
 	$status=unlink("../".$fetchpartnershipNetworkManage);
 if (mysqli_query($conn, $sql)) {
@@ -3046,7 +3046,7 @@ $txt_ENC_GlobalReach_Page_Title=addslashes($_POST['txt_ENC_GlobalReach_Page_Titl
 $membermail=$_SESSION['email'];
 $GlobalReach_Title_update=mysqli_query($conn,"update posts set post='".$txt_ENC_GlobalReach_Page_Title."' ,Manager_mail='".$membermail."' where (post_code='Global Reach Title' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Global Reach Title' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchGlobalReachTitle=$fetch['post'];
 	echo $fetchGlobalReachTitle;
 
@@ -3059,7 +3059,7 @@ $txt_GlobalReach_Desc1=addslashes($_POST['txt_GlobalReach_Desc1']);
 $membermail=$_SESSION['email'];
 $GlobalReach_Desc1_update=mysqli_query($conn,"update posts set post='".$txt_GlobalReach_Desc1."' ,Manager_mail='".$membermail."' where (post_code='Global Reach Desc1' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Global Reach Desc1' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchGlobalReachDesc1=$fetch['post'];
 	echo $fetchGlobalReachDesc1;
 
@@ -3072,7 +3072,7 @@ $txt_GlobalReach_Desc2=addslashes($_POST['txt_GlobalReach_Desc2']);
 $membermail=$_SESSION['email'];
 $GlobalReach_Desc2_update=mysqli_query($conn,"update posts set post='".$txt_GlobalReach_Desc2."' ,Manager_mail='".$membermail."' where (post_code='Global Reach Desc2' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Global Reach Desc2' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchGlobalReachDesc2=$fetch['post'];
 	echo $fetchGlobalReachDesc2;
 
@@ -3161,7 +3161,7 @@ $fileSql=$uploadPathSql.$resizeFileName . "." . $fileExt;
 if($getstate=="DeleteSlideshowImage"){
 	$DeleteSlideshowID=strip_tags($_POST['DeleteSlideshow']);
 $sql_query = mysqli_query($conn,"select * from slideshow where (slide_id='$DeleteSlideshowID')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSlideImage=$fetch['slide_img'];
 	$status=unlink("../".$fetchSlideImage);
 	$sql = "DELETE FROM slideshow WHERE slide_id='$DeleteSlideshowID'";
@@ -3213,7 +3213,7 @@ $fileSql=$uploadPathSql.$resizeFileName . "." . $fileExt;
 if($getstate=="DeletePartnerBannerImage"){
 	$DeletePartnerBannerID=strip_tags($_POST['DeletePartnerBanner']);
 $sql_query = mysqli_query($conn,"select * from banner where (banner_id='$DeletePartnerBannerID' And banner_group='PartnerBanner')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchbanner_img=$fetch['banner_img'];
 	$status=unlink("../".$fetchbanner_img);
 	$sql = "DELETE FROM banner WHERE banner_id='$DeletePartnerBannerID' And banner_group='PartnerBanner'";
@@ -3265,7 +3265,7 @@ $fileSql=$uploadPathSql.$resizeFileName . "." . $fileExt;
 if($getstate=="DeleteClientBannerImage"){
 	$DeletePartnerBannerID=strip_tags($_POST['DeleteClientBanner']);
 $sql_query = mysqli_query($conn,"select * from banner where (banner_id='$DeletePartnerBannerID' And banner_group='ClientBanner')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchbanner_img=$fetch['banner_img'];
 	$status=unlink("../".$fetchbanner_img);
 	$sql = "DELETE FROM banner WHERE banner_id='$DeletePartnerBannerID' And banner_group='ClientBanner'";
@@ -3284,7 +3284,7 @@ $txt_ENC_GeneralManager_Title=addslashes($_POST['txt_ENC_GeneralManager_Title'])
 $membermail=$_SESSION['email'];
 $partnerParagraph_Title_update=mysqli_query($conn,"update posts set post='".$txt_ENC_GeneralManager_Title."' ,Manager_mail='".$membermail."' where (post_code='contactus_general_Manager' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='contactus_general_Manager' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchGeneralManagerTitle=$fetch['post'];
 	echo $fetchGeneralManagerTitle;
 
@@ -3296,7 +3296,7 @@ $txt_ENC_SalesManager_Title=addslashes($_POST['txt_ENC_SalesManager_Title']);
 $membermail=$_SESSION['email'];
 $partnerParagraph_Title_update=mysqli_query($conn,"update posts set post='".$txt_ENC_SalesManager_Title."' ,Manager_mail='".$membermail."' where (post_code='Conatct us Sales Manager' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='Conatct us Sales Manager' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSalesManagerTitle=$fetch['post'];
 	echo $fetchSalesManagerTitle;
 
@@ -3308,7 +3308,7 @@ $txt_ENC_SalesManagermail_Title=addslashes($_POST['txt_ENC_SalesManagermail_Titl
 $membermail=$_SESSION['email'];
 $partnerParagraph_Title_update=mysqli_query($conn,"update posts set post='".$txt_ENC_SalesManagermail_Title."' ,Manager_mail='".$membermail."' where (post_code='SalesManageremail' AND memberallow_group='74747')");
     $sql_query = mysqli_query($conn,"select * from posts where (post_code='SalesManageremail' AND memberallow_group='74747')");
-	$fetch=mysqli_fetch_assoc($sql_query);
+	$fetch=enc_fetch_assoc($sql_query);
 	$fetchSalesManagermailTitle=$fetch['post'];
 	echo $fetchSalesManagermailTitle;
 

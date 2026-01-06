@@ -1,5 +1,5 @@
 <?php
-include '@inc/conn.php';
+include __DIR__ . '/@inc/conn.php';
 session_start();
 if(isset($_SESSION['email'])){
 $email=$_SESSION['email'];
@@ -7,7 +7,7 @@ $membername=$_SESSION['member_name'];
 $passcode=$_SESSION['member_passcode'];
 }
 $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter=$socialfetch['Social_twitter'];
 $socialfacebook=$socialfetch['Social_facebook'];
 $Sociallinkedin=$socialfetch['Social_linkedin'];
@@ -54,22 +54,22 @@ $socialaddress=$socialfetch['social_address'];
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<?php include "@inc/header_partner.php";?>
+<?php include __DIR__ . "/@inc/header_partner.php";?>
 
         
     <!-- Topbar End -->
 <div id="partner"> 
     
 <?php
- include "@inc/Clientbanner.php";
+ include __DIR__ . "/@inc/Clientbanner.php";
 ?>
 <hr>
 <?php
- include "@inc/Partnerbanner.php";
+ include __DIR__ . "/@inc/Partnerbanner.php";
 ?>
     </div>
     <!-- Navbar Start -->
-	      <?php include "@inc/sidebarcommunicte.php";?>
+	      <?php include __DIR__ . "/@inc/sidebarcommunicte.php";?>
 
     <!-- Navbar End -->
 
@@ -93,7 +93,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 				
 				$selectENCPartnerParagraph=mysqli_query($conn,"select * from posts where post_code='partnerParagraph'");
-				$fetch=mysqli_fetch_assoc($selectENCPartnerParagraph);
+				$fetch=enc_fetch_assoc($selectENCPartnerParagraph);
 				$fetch_ENC_PartnerParagraph_Desc=$fetch['post'];
 				echo $fetch_ENC_PartnerParagraph_Desc;
 				
@@ -103,7 +103,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -116,14 +116,14 @@ $socialaddress=$socialfetch['social_address'];
 				<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Our Partnership Level Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor49=$fetch['postcolor'];
 				
 				?>
      <h1 class="Ourpartnership" style="display:inline-block;color:<?php echo $postColor49;?> !important;"><?php
 				
 				$selectENCPartnerParagraphTitle=mysqli_query($conn,"select * from posts where post_code='Our Partnership Level Title'");
-				$fetch=mysqli_fetch_assoc($selectENCPartnerParagraphTitle);
+				$fetch=enc_fetch_assoc($selectENCPartnerParagraphTitle);
 				$fetch_ENC_PartnerParagraph_Title=$fetch['post'];
 				echo $fetch_ENC_PartnerParagraph_Title;
 				
@@ -132,7 +132,7 @@ $socialaddress=$socialfetch['social_address'];
 				  <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -151,7 +151,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				<?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='OurPartnership'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -161,7 +161,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -174,7 +174,7 @@ $socialaddress=$socialfetch['social_address'];
           	 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -207,7 +207,7 @@ $socialaddress=$socialfetch['social_address'];
     <h3></h3>
 <?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='Global'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -217,7 +217,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -230,7 +230,7 @@ $socialaddress=$socialfetch['social_address'];
     	 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -247,7 +247,7 @@ $socialaddress=$socialfetch['social_address'];
     <h3></h3>
 <?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='System'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -257,7 +257,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -270,7 +270,7 @@ $socialaddress=$socialfetch['social_address'];
  <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -288,7 +288,7 @@ $socialaddress=$socialfetch['social_address'];
     <h3></h3>
  <?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='Network'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -298,7 +298,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -311,7 +311,7 @@ $socialaddress=$socialfetch['social_address'];
  <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -329,7 +329,7 @@ $socialaddress=$socialfetch['social_address'];
     <h3></h3>
  <?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='NetworkPassive'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -339,7 +339,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -352,7 +352,7 @@ $socialaddress=$socialfetch['social_address'];
   <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -371,7 +371,7 @@ $socialaddress=$socialfetch['social_address'];
     <h3></h3>
 <?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='ServerDesktop'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -381,7 +381,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -394,7 +394,7 @@ $socialaddress=$socialfetch['social_address'];
   <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -411,7 +411,7 @@ $socialaddress=$socialfetch['social_address'];
     <h3></h3>
   <?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='Security'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -421,7 +421,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -434,7 +434,7 @@ $socialaddress=$socialfetch['social_address'];
   <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -452,7 +452,7 @@ $socialaddress=$socialfetch['social_address'];
     <h3></h3>
    <?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='UPS'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -462,7 +462,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -475,7 +475,7 @@ $socialaddress=$socialfetch['social_address'];
   <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -492,7 +492,7 @@ $socialaddress=$socialfetch['social_address'];
     <h3></h3>
     <?php
 			$select=mysqli_query($conn,"select * from partner where partner_group='NetworkManage'");
-				while($clientfetch=mysqli_fetch_assoc($select)){
+				while($clientfetch=enc_fetch_assoc($select)){
 				$partner_img=$clientfetch['partner_img'];
 				$partner_id=$clientfetch['partner_id'];
 			?>
@@ -502,7 +502,7 @@ $socialaddress=$socialfetch['social_address'];
 				
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -515,7 +515,7 @@ $socialaddress=$socialfetch['social_address'];
   <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
@@ -533,7 +533,7 @@ $socialaddress=$socialfetch['social_address'];
     
 
     <!-- Footer Start -->
- <?php include "@inc/footerinc.php";?>
+ <?php include __DIR__ . "/@inc/footerinc.php";?>
 
     <!-- Footer End -->
 
@@ -555,7 +555,7 @@ $socialaddress=$socialfetch['social_address'];
 	 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){

@@ -4,7 +4,7 @@
             <?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Ourteam Intro'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor21=$fetch['postcolor'];
 				
 				?>
@@ -12,14 +12,14 @@
 			<h1 class="display-5 mb-0 txtforTitle ourteamIntro" style="color:<?php echo $postColor21;?> !important;"><?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='Ourteam Intro'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_Team_Intro=$fetch['post'];
 				echo $fetch_Team_Intro;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -43,7 +43,7 @@
 			<?php 			
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];				
 				if($memberPreimission=="manager_admin"){
 ?>
@@ -56,7 +56,7 @@
 			<?php
 				}}
 				$selectTeamImage=mysqli_query($conn,"select * from posts_img where post_code='Teamgroup_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectTeamImage);
+				$fetch=enc_fetch_assoc($selectTeamImage);
 				$selectTeamImage_1=$fetch['post_img_path'];
 				
 				?>
@@ -68,21 +68,21 @@
 				<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='OurTeam Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor22=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle OurTeamTitle" style="color:<?php echo $postColor22;?> !important;"><?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='OurTeam Title'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_Team_Title=$fetch['post'];
 				echo $fetch_Team_Title;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -101,14 +101,14 @@
 <p style='font-size: 18px;' class="OurTeamDesctxt"><?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='OurTeam Desc'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_Team_Desc=$fetch['post'];
 				echo $fetch_Team_Desc;
 				
 				?></p><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){

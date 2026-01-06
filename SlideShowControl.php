@@ -1,5 +1,5 @@
  <?php
-include '@inc/conn.php';
+include __DIR__ . '/@inc/conn.php';
 session_start();
 if(isset($_SESSION['email'])){
 $email=$_SESSION['email'];
@@ -7,7 +7,7 @@ $membername=$_SESSION['member_name'];
 $passcode=$_SESSION['member_passcode'];
 }
 $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter=$socialfetch['Social_twitter'];
 $socialfacebook=$socialfetch['Social_facebook'];
 $Sociallinkedin=$socialfetch['Social_linkedin'];
@@ -54,22 +54,22 @@ $socialaddress=$socialfetch['social_address'];
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<?php include "@inc/header_news.php";?>
+<?php include __DIR__ . "/@inc/header_news.php";?>
 
         
     <!-- Topbar End -->
 <div id="partner"> 
     
 <?php
- include "@inc/Clientbanner.php";
+ include __DIR__ . "/@inc/Clientbanner.php";
 ?>
 <hr>
 <?php
- include "@inc/Partnerbanner.php";
+ include __DIR__ . "/@inc/Partnerbanner.php";
 ?>
     </div>
     <!-- Navbar Start -->
-	      <?php include "@inc/sidebarcommunicte.php";?>
+	      <?php include __DIR__ . "/@inc/sidebarcommunicte.php";?>
 
     <!-- Navbar End -->
 
@@ -91,7 +91,7 @@ $socialaddress=$socialfetch['social_address'];
 		<?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from slideshow");
-				while($fetch=mysqli_fetch_assoc($selectFeaturesIntro)){
+				while($fetch=enc_fetch_assoc($selectFeaturesIntro)){
 				$slide_title=$fetch['slide_title'];
 				$slide_caption=$fetch['slide_caption'];
 				$slide_img=$fetch['slide_img'];
@@ -119,7 +119,7 @@ $socialaddress=$socialfetch['social_address'];
         </div>
 
     </div>
-	 <?php include "@inc/footerinc.php";?>
+	 <?php include __DIR__ . "/@inc/footerinc.php";?>
 
     <!-- Footer End -->
 
@@ -142,7 +142,7 @@ $socialaddress=$socialfetch['social_address'];
 		 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){

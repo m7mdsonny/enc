@@ -6,21 +6,21 @@
 			<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Quote Index Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor20=$fetch['postcolor'];
 				
 				?>
                 <h1 class="display-5 mb-4 txtforTitle txtQuoteTitle1" style="color:<?php echo $postColor20;?> !important;"><?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='Quote Index Title'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_Quote_Title1=$fetch['post'];
 				echo $fetch_Quote_Title1;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -40,7 +40,7 @@
                 <p class="mb-4 txtQuotedesc1"><?php
 				
 				$selectFeaturesDesc1=mysqli_query($conn,"select * from posts where post_code='Quote Index Desc'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesDesc1);
+				$fetch=enc_fetch_assoc($selectFeaturesDesc1);
 				$fetch_Quote_Desc1=$fetch['post'];
 				echo $fetch_Quote_Desc1;
 				
@@ -48,7 +48,7 @@
 				<?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -97,7 +97,7 @@
 				<?php 			
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];				
 				if($memberPreimission=="manager_admin"){
 ?>
@@ -110,7 +110,7 @@
 				<?php
 				}}
 				$selectQuoteImage=mysqli_query($conn,"select * from posts_img where post_code='Quote_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectQuoteImage);
+				$fetch=enc_fetch_assoc($selectQuoteImage);
 				$selectQuoteImage_1=$fetch['post_img_path'];
 				
 				?>

@@ -4,7 +4,7 @@
             <div class="carousel-inner">
 			<?php 
 						$select=mysqli_query($conn,"select * from slideshow");
-						while($fetch=mysqli_fetch_assoc($select)){
+						while($fetch=enc_fetch_assoc($select)){
 							$title=$fetch['slide_title'];
 							$caption=$fetch['slide_caption'];
 							$image=$fetch['slide_img'];

@@ -1,9 +1,9 @@
 <div id="partner"> 
 <?php
- include "Clientbanner.php";
+include __DIR__ . "/Clientbanner.php";
 ?>
 <hr>
 <?php
- include "Partnerbanner.php";
+include __DIR__ . "/Partnerbanner.php";
 ?>
     </div>

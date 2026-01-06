@@ -5,21 +5,21 @@
 		  <?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='News Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor24=$fetch['postcolor'];
 				
 				?>
             <h1 class="display-5 mb-0 txtforTitle newstitle" style="color:<?php echo $postColor24;?> !important;"><?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='News Title'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_news_title=$fetch['post'];
 				echo $fetch_news_title;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -41,7 +41,7 @@
 		<?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from news limit 3");
-				while($fetch=mysqli_fetch_assoc($selectFeaturesIntro)){
+				while($fetch=enc_fetch_assoc($selectFeaturesIntro)){
 				$news_day=$fetch['news_day'];
 				$news_month=$fetch['news_month'];
 				$news_year=$fetch['news_year'];
@@ -60,7 +60,7 @@
 						<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='News Background'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor24=$fetch['postcolor'];
 				
 				?>
@@ -87,7 +87,7 @@
 <?php
 if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){

@@ -1,5 +1,5 @@
 <?php
-include '@inc/conn.php';
+include __DIR__ . '/@inc/conn.php';
 session_start();
 if(isset($_SESSION['email'])){
 $email=$_SESSION['email'];
@@ -7,7 +7,7 @@ $membername=$_SESSION['member_name'];
 $passcode=$_SESSION['member_passcode'];
 }
 $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter=$socialfetch['Social_twitter'];
 $socialfacebook=$socialfetch['Social_facebook'];
 $Sociallinkedin=$socialfetch['Social_linkedin'];
@@ -72,18 +72,18 @@ $socialaddress=$socialfetch['social_address'];
        </div>
 
 	<?php 
-include '@inc/header.php';
-include '@inc/partner.php';
-include '@inc/sidebarCommunicte.php';
-include '@inc/carousel.php';
-include '@inc/aboutinc.php';
-include '@inc/serviceinc.php';
-include '@inc/featuresinc.php';
-include '@inc/quoteinc.php';
-include '@inc/teaminc.php';
-//include '@inc/testimoleinc.php';
-//include '@inc/bloginc.php';
-include '@inc/footerinc.php';
+include __DIR__ . '/@inc/header.php';
+include __DIR__ . '/@inc/partner.php';
+include __DIR__ . '/@inc/sidebarCommunicte.php';
+include __DIR__ . '/@inc/carousel.php';
+include __DIR__ . '/@inc/aboutinc.php';
+include __DIR__ . '/@inc/serviceinc.php';
+include __DIR__ . '/@inc/featuresinc.php';
+include __DIR__ . '/@inc/quoteinc.php';
+include __DIR__ . '/@inc/teaminc.php';
+//include __DIR__ . '/@inc/testimoleinc.php';
+//include __DIR__ . '/@inc/bloginc.php';
+include __DIR__ . '/@inc/footerinc.php';
  ?>
  <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -107,7 +107,7 @@ include '@inc/footerinc.php';
 		  <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){
