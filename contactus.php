@@ -1,5 +1,5 @@
 <?php
-include '@inc/conn.php';
+include __DIR__ . '/@inc/conn.php';
 session_start();
 if(isset($_SESSION['email'])){
 $email=$_SESSION['email'];
@@ -7,7 +7,7 @@ $membername=$_SESSION['member_name'];
 $passcode=$_SESSION['member_passcode'];
 }
 $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter=$socialfetch['Social_twitter'];
 $socialfacebook=$socialfetch['Social_facebook'];
 $Sociallinkedin=$socialfetch['Social_linkedin'];
@@ -17,7 +17,7 @@ $Socialemail=$socialfetch['Social_email'];
 $Socialinstegram=$socialfetch['Social_instegram'];
 $socialaddress=$socialfetch['social_address'];
 $selectContactus=mysqli_query($conn,"select * from posts where (post_code='contactus_general_Manager')");
-$fetch=mysqli_fetch_assoc($selectContactus);
+$fetch=enc_fetch_assoc($selectContactus);
 $general_manager=$fetch['post'];
 
    ?>
@@ -56,22 +56,22 @@ $general_manager=$fetch['post'];
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body  style="overflow-x:hidden;">
-<?php include "@inc/header_contact.php";?>
+<?php include __DIR__ . "/@inc/header_contact.php";?>
 
         
     <!-- Topbar End -->
 <div id="partner"> 
     
 <?php
- include "@inc/Clientbanner.php";
+ include __DIR__ . "/@inc/Clientbanner.php";
 ?>
 <hr>
 <?php
- include "@inc/Partnerbanner.php";
+ include __DIR__ . "/@inc/Partnerbanner.php";
 ?>
     </div>
     <!-- Navbar Start -->
-	 	      <?php include "@inc/sidebarcommunicte.php";?>
+	 	      <?php include __DIR__ . "/@inc/sidebarcommunicte.php";?>
 
     <!-- Navbar End -->
 
@@ -96,7 +96,7 @@ $general_manager=$fetch['post'];
         </div> 
         </div> 
    <!-- Quote End -->
- <?php include"@inc/quoteinc.php";?>
+ <?php include __DIR__ . "/@inc/quoteinc.php";?>
 
 	    		
     <!-- Services End -->
@@ -104,7 +104,7 @@ $general_manager=$fetch['post'];
     
 
     <!-- Footer Start -->
- <?php include "@inc/footerinc.php";?>
+ <?php include __DIR__ . "/@inc/footerinc.php";?>
 
     <!-- Footer End -->
 
@@ -126,7 +126,7 @@ $general_manager=$fetch['post'];
 	<?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){

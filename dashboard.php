@@ -1,5 +1,5 @@
 <?php
-include '@inc/conn.php';
+include __DIR__ . '/@inc/conn.php';
 session_start();
 if(isset($_SESSION['email'])){
 $email=$_SESSION['email'];
@@ -7,7 +7,7 @@ $membername=$_SESSION['member_name'];
 $passcode=$_SESSION['member_passcode'];
 }
 $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter=$socialfetch['Social_twitter'];
 $socialfacebook=$socialfetch['Social_facebook'];
 $Sociallinkedin=$socialfetch['Social_linkedin'];
@@ -52,7 +52,7 @@ $socialaddress=$socialfetch['social_address'];
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<?php include "@inc/header_dashboard.php";?>
+<?php include __DIR__ . "/@inc/header_dashboard.php";?>
 
         
     <!-- Topbar End -->
@@ -64,11 +64,11 @@ $socialaddress=$socialfetch['social_address'];
  <div id="partner"> 
     
 <?php
- include "@inc/Clientbanner.php";
+ include __DIR__ . "/@inc/Clientbanner.php";
 ?>
 <hr>
 <?php
- include "@inc/Partnerbanner.php";
+ include __DIR__ . "/@inc/Partnerbanner.php";
 ?>
     </div>
 
@@ -80,12 +80,12 @@ $socialaddress=$socialfetch['social_address'];
             </div>
         </div>
     </div>
-<?php include "@inc/sidebarcommunicte.php";?>
+<?php include __DIR__ . "/@inc/sidebarcommunicte.php";?>
 	  <!-- Page Header End -->
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				$member_phone=$memberfetch['member_phone'];
 				$member_Admin_email=$memberfetch['admin_mail'];
@@ -96,7 +96,7 @@ $socialaddress=$socialfetch['social_address'];
 <div class="tblPro">
 <?php
 $selectsocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectsocial);
+$socialfetch=enc_fetch_assoc($selectsocial);
 $phone=$socialfetch['Social_phone'];
 $Social_Whatsapp=$socialfetch['Social_Whatsapp'];
 $Social_email=$socialfetch['Social_email'];
@@ -437,7 +437,7 @@ $social_address=$socialfetch['social_address'];
     
 
     <!-- Footer Start -->
- <?php include "@inc/footerinc.php";?>
+ <?php include __DIR__ . "/@inc/footerinc.php";?>
     <!-- Footer End -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
@@ -455,7 +455,7 @@ $social_address=$socialfetch['social_address'];
 	<?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){

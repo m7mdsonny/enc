@@ -1,5 +1,5 @@
 <?php
-include '@inc/conn.php';
+include __DIR__ . '/@inc/conn.php';
 session_start();
 if(isset($_SESSION['email'])){
 $email=$_SESSION['email'];
@@ -7,7 +7,7 @@ $membername=$_SESSION['member_name'];
 $passcode=$_SESSION['member_passcode'];
 }
 $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter=$socialfetch['Social_twitter'];
 $socialfacebook=$socialfetch['Social_facebook'];
 $Sociallinkedin=$socialfetch['Social_linkedin'];
@@ -54,19 +54,19 @@ $socialaddress=$socialfetch['social_address'];
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<?php include "@inc/header_services.php";?>
+<?php include __DIR__ . "/@inc/header_services.php";?>
 <div id="partner"> 
     
 <?php
- include "@inc/Clientbanner.php";
+ include __DIR__ . "/@inc/Clientbanner.php";
 ?>
 <hr>
 <?php
- include "@inc/Partnerbanner.php";
+ include __DIR__ . "/@inc/Partnerbanner.php";
 ?>
     </div>
     <!-- Navbar Start -->
-<?php include "@inc/sidebarcommunicte.php";?>
+<?php include __DIR__ . "/@inc/sidebarcommunicte.php";?>
 
     <!-- Navbar End -->
 
@@ -90,7 +90,7 @@ $socialaddress=$socialfetch['social_address'];
 						<?php
 				
 				$selectENCProfServicesImage=mysqli_query($conn,"select * from posts_img where post_code='ENCProfServices_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectENCProfServicesImage);
+				$fetch=enc_fetch_assoc($selectENCProfServicesImage);
 				$selectServiceImage_1=$fetch['post_img_path'];
 				
 				?>
@@ -98,7 +98,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 									if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 									if($memberPreimission=="manager_admin"){
 ?>
@@ -114,21 +114,21 @@ $socialaddress=$socialfetch['social_address'];
 							 <?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='ENC Prof Services Services Page'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor30=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle txtServicesTitleServicesPage" style="color:<?php echo $postColor30;?> !important;"><?php
 				
 				$selectProfServicesServicesPageTitle=mysqli_query($conn,"select * from posts where post_code='ENC Prof Services Services Page'");
-				$fetch=mysqli_fetch_assoc($selectProfServicesServicesPageTitle);
+				$fetch=enc_fetch_assoc($selectProfServicesServicesPageTitle);
 				$fetch_ENC_Prof_Services_Services_Page_Title=$fetch['post'];
 				echo $fetch_ENC_Prof_Services_Services_Page_Title;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -148,7 +148,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				
 				$selectProfServicesServicesPageDesc=mysqli_query($conn,"select * from posts where post_code='Prof Services Services Page Desc'");
-				$fetch=mysqli_fetch_assoc($selectProfServicesServicesPageDesc);
+				$fetch=enc_fetch_assoc($selectProfServicesServicesPageDesc);
 				$fetch_ENC_Prof_Services_Services_Page_Desc=$fetch['post'];
 				echo $fetch_ENC_Prof_Services_Services_Page_Desc;
 				
@@ -157,7 +157,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -179,21 +179,21 @@ $socialaddress=$socialfetch['social_address'];
 					 <?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='PPDIOO Services Page Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor31=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle txtPPDIOOServicesPageTitle" style="color:<?php echo $postColor31;?> !important;"><?php
 				
 				$selectPPDIOOServicesPageTitle=mysqli_query($conn,"select * from posts where post_code='PPDIOO Services Page Title'");
-				$fetch=mysqli_fetch_assoc($selectPPDIOOServicesPageTitle);
+				$fetch=enc_fetch_assoc($selectPPDIOOServicesPageTitle);
 				$fetch_ENC_PPDIOO_Services_Page_Title=$fetch['post'];
 				echo $fetch_ENC_PPDIOO_Services_Page_Title;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -213,7 +213,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				
 				$selectPPDIOOServicesPageDesc=mysqli_query($conn,"select * from posts where post_code='PPDIOO Services Page Desc'");
-				$fetch=mysqli_fetch_assoc($selectPPDIOOServicesPageDesc);
+				$fetch=enc_fetch_assoc($selectPPDIOOServicesPageDesc);
 				$fetch_ENC_PPDIOO_Services_Page_Desc=$fetch['post'];
 				echo $fetch_ENC_PPDIOO_Services_Page_Desc;
 				
@@ -222,7 +222,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -239,7 +239,7 @@ $socialaddress=$socialfetch['social_address'];
 						<?php
 				
 				$selectPPDIOOImage=mysqli_query($conn,"select * from posts_img where post_code='PPDIOO_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectPPDIOOImage);
+				$fetch=enc_fetch_assoc($selectPPDIOOImage);
 				$selectServiceImage_2=$fetch['post_img_path'];
 				
 				?>
@@ -247,7 +247,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 									if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 									if($memberPreimission=="manager_admin"){
 ?>
@@ -267,7 +267,7 @@ $socialaddress=$socialfetch['social_address'];
 						<?php
 				
 				$selectSLAImage=mysqli_query($conn,"select * from posts_img where post_code='SLA_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectSLAImage);
+				$fetch=enc_fetch_assoc($selectSLAImage);
 				$selectServiceImage_3=$fetch['post_img_path'];
 				
 				?>
@@ -275,7 +275,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 									if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 									if($memberPreimission=="manager_admin"){
 ?>
@@ -291,21 +291,21 @@ $socialaddress=$socialfetch['social_address'];
 				 <?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='SLA Resident Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor32=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle txtSLAResidentTitle" style="color:<?php echo $postColor32;?> !important;"><?php
 				
 				$selectSLAResidentTitleServicesPageTitle=mysqli_query($conn,"select * from posts where post_code='SLA Resident Title'");
-				$fetch=mysqli_fetch_assoc($selectSLAResidentTitleServicesPageTitle);
+				$fetch=enc_fetch_assoc($selectSLAResidentTitleServicesPageTitle);
 				$fetch_ENC_SLAResidentTitle_Services_Page_Title=$fetch['post'];
 				echo $fetch_ENC_SLAResidentTitle_Services_Page_Title;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -325,7 +325,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				
 				$selectSLAResidentTitleServicesPageDesc=mysqli_query($conn,"select * from posts where post_code='SLA Resident Desc'");
-				$fetch=mysqli_fetch_assoc($selectSLAResidentTitleServicesPageDesc);
+				$fetch=enc_fetch_assoc($selectSLAResidentTitleServicesPageDesc);
 				$fetch_ENC_SLAResidentTitle_Services_Page_Desc=$fetch['post'];
 				echo $fetch_ENC_SLAResidentTitle_Services_Page_Desc;
 				
@@ -334,7 +334,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -355,14 +355,14 @@ $socialaddress=$socialfetch['social_address'];
 				<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Helpdesk Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor33=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle txtHelpDeskTitle" style="color:<?php echo $postColor33;?> !important;">
 				   <?php
 				$selectHelpDeskServicesPageTitle=mysqli_query($conn,"select * from posts where post_code='Helpdesk Title'");
-				$fetch=mysqli_fetch_assoc($selectHelpDeskServicesPageTitle);
+				$fetch=enc_fetch_assoc($selectHelpDeskServicesPageTitle);
 				$fetch_ENC_HelpDesk_Services_Page_Title=$fetch['post'];
 				echo $fetch_ENC_HelpDesk_Services_Page_Title;
 				?>
@@ -371,7 +371,7 @@ $socialaddress=$socialfetch['social_address'];
 				   <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -390,7 +390,7 @@ $socialaddress=$socialfetch['social_address'];
 <p style="font-size: 18px;" class="txtHelpDeskDesc"> 
 <?php
 				$selectHelpDeskServicesPageDesc=mysqli_query($conn,"select * from posts where post_code='Helpdesk Desc'");
-				$fetch=mysqli_fetch_assoc($selectHelpDeskServicesPageDesc);
+				$fetch=enc_fetch_assoc($selectHelpDeskServicesPageDesc);
 				$fetch_ENC_HelpDesk_Services_Page_Desc=$fetch['post'];
 				echo $fetch_ENC_HelpDesk_Services_Page_Desc;
 				?>
@@ -398,7 +398,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -415,7 +415,7 @@ $socialaddress=$socialfetch['social_address'];
 						<?php
 				
 				$selectHelpdeskImage=mysqli_query($conn,"select * from posts_img where post_code='Helpdesk_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectHelpdeskImage);
+				$fetch=enc_fetch_assoc($selectHelpdeskImage);
 				$selectServiceImage_4=$fetch['post_img_path'];
 				
 				?>
@@ -423,7 +423,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 									if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 									if($memberPreimission=="manager_admin"){
 ?>
@@ -442,7 +442,7 @@ $socialaddress=$socialfetch['social_address'];
 						<?php
 				
 				$selectGlobalFieldImage=mysqli_query($conn,"select * from posts_img where post_code='GlobalField_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectGlobalFieldImage);
+				$fetch=enc_fetch_assoc($selectGlobalFieldImage);
 				$selectServiceImage_5=$fetch['post_img_path'];
 				
 				?>
@@ -450,7 +450,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 									if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 									if($memberPreimission=="manager_admin"){
 ?>
@@ -466,14 +466,14 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Global Field Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor34=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle txtGlobalFieldTitle" style="color:<?php echo $postColor34;?> !important;">
 				   <?php
 				$selectGlobalFieldServicesPageTitle=mysqli_query($conn,"select * from posts where post_code='Global Field Title'");
-				$fetch=mysqli_fetch_assoc($selectGlobalFieldServicesPageTitle);
+				$fetch=enc_fetch_assoc($selectGlobalFieldServicesPageTitle);
 				$fetch_ENC_GlobalField_Services_Page_Title=$fetch['post'];
 				echo $fetch_ENC_GlobalField_Services_Page_Title;
 				?>
@@ -481,7 +481,7 @@ $socialaddress=$socialfetch['social_address'];
 				      <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -500,7 +500,7 @@ $socialaddress=$socialfetch['social_address'];
 <p style="font-size: 18px;" class="txtGlobalFieldDesc"> 
 <?php
 				$selectGlobalFieldServicesPageDesc=mysqli_query($conn,"select * from posts where post_code='Global Field Desc'");
-				$fetch=mysqli_fetch_assoc($selectGlobalFieldServicesPageDesc);
+				$fetch=enc_fetch_assoc($selectGlobalFieldServicesPageDesc);
 				$fetch_ENC_GlobalField_Services_Page_Desc=$fetch['post'];
 				echo $fetch_ENC_GlobalField_Services_Page_Desc;
 				?>
@@ -509,7 +509,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -528,14 +528,14 @@ $socialaddress=$socialfetch['social_address'];
 				<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Global Professional Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor35=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle txtGlobalProf" style="color:<?php echo $postColor35;?> !important;">
 				   <?php
 				$selectGlobalProfServicesPageTitle=mysqli_query($conn,"select * from posts where post_code='Global Professional Title'");
-				$fetch=mysqli_fetch_assoc($selectGlobalProfServicesPageTitle);
+				$fetch=enc_fetch_assoc($selectGlobalProfServicesPageTitle);
 				$fetch_ENC_GlobalProf_Services_Page_Title=$fetch['post'];
 				echo $fetch_ENC_GlobalProf_Services_Page_Title;
 				?>
@@ -544,7 +544,7 @@ $socialaddress=$socialfetch['social_address'];
 				   <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -563,7 +563,7 @@ $socialaddress=$socialfetch['social_address'];
 <p style="font-size: 18px;" class="txtGlobalProfDesc">
 <?php
 				$selectGlobalProfServicesPageDesc=mysqli_query($conn,"select * from posts where post_code='Global Professional Desc'");
-				$fetch=mysqli_fetch_assoc($selectGlobalProfServicesPageDesc);
+				$fetch=enc_fetch_assoc($selectGlobalProfServicesPageDesc);
 				$fetch_ENC_GlobalProf_Services_Page_Desc=$fetch['post'];
 				echo $fetch_ENC_GlobalProf_Services_Page_Desc;
 				?>
@@ -572,7 +572,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -589,7 +589,7 @@ $socialaddress=$socialfetch['social_address'];
 						<?php
 				
 				$selectGlobalProfImage=mysqli_query($conn,"select * from posts_img where post_code='GlobalProfessional_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectGlobalProfImage);
+				$fetch=enc_fetch_assoc($selectGlobalProfImage);
 				$selectServiceImage_6=$fetch['post_img_path'];
 				
 				?>
@@ -597,7 +597,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 									if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 									if($memberPreimission=="manager_admin"){
 ?>
@@ -616,7 +616,7 @@ $socialaddress=$socialfetch['social_address'];
 						<?php
 				
 				$selectPenetrationImage=mysqli_query($conn,"select * from posts_img where post_code='Penetration_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectPenetrationImage);
+				$fetch=enc_fetch_assoc($selectPenetrationImage);
 				$selectServiceImage_7=$fetch['post_img_path'];
 				
 				?>
@@ -624,7 +624,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 									if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 									if($memberPreimission=="manager_admin"){
 ?>
@@ -640,14 +640,14 @@ $socialaddress=$socialfetch['social_address'];
 				<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Penetration Testing Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor36=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle txtPenetrationtestingTitle" style="color:<?php echo $postColor36;?> !important;">
 				   <?php
 				$selectPenetrationTestingServicesPageTitle=mysqli_query($conn,"select * from posts where post_code='Penetration Testing Title'");
-				$fetch=mysqli_fetch_assoc($selectPenetrationTestingServicesPageTitle);
+				$fetch=enc_fetch_assoc($selectPenetrationTestingServicesPageTitle);
 				$fetch_ENC_PenetrationTesting_Services_Page_Title=$fetch['post'];
 				echo $fetch_ENC_PenetrationTesting_Services_Page_Title;
 				?>
@@ -655,7 +655,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -674,7 +674,7 @@ $socialaddress=$socialfetch['social_address'];
 <p style="font-size: 18px;" class="txtPenetrationtestingDesc"> 
 <?php
 				$selectPenetrationTestingServicesPageDesc=mysqli_query($conn,"select * from posts where post_code='Penetration Testing Desc'");
-				$fetch=mysqli_fetch_assoc($selectPenetrationTestingServicesPageDesc);
+				$fetch=enc_fetch_assoc($selectPenetrationTestingServicesPageDesc);
 				$fetch_ENC_PenetrationTesting_Services_Page_Desc=$fetch['post'];
 				echo $fetch_ENC_PenetrationTesting_Services_Page_Desc;
 				?>
@@ -683,7 +683,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -704,14 +704,14 @@ $socialaddress=$socialfetch['social_address'];
 				<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Human Resource Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor37=$fetch['postcolor'];
 				
 				?>
                    <h1 class="txtforTitle txtHumanResourceTitle" style="color:<?php echo $postColor37;?> !important;">
 				   <?php
 				$selectHumanResourceServicesPageTitle=mysqli_query($conn,"select * from posts where post_code='Human Resource Title'");
-				$fetch=mysqli_fetch_assoc($selectHumanResourceServicesPageTitle);
+				$fetch=enc_fetch_assoc($selectHumanResourceServicesPageTitle);
 				$fetch_ENC_HumanResource_Services_Page_Title=$fetch['post'];
 				echo $fetch_ENC_HumanResource_Services_Page_Title;
 				?>
@@ -719,7 +719,7 @@ $socialaddress=$socialfetch['social_address'];
 		<?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -739,7 +739,7 @@ $socialaddress=$socialfetch['social_address'];
 <p style="font-size: 18px;" class="txtHumanResourceDesc">
 <?php
 				$selectHumanResourceServicesPageDesc=mysqli_query($conn,"select * from posts where post_code='Human Resource Desc'");
-				$fetch=mysqli_fetch_assoc($selectHumanResourceServicesPageDesc);
+				$fetch=enc_fetch_assoc($selectHumanResourceServicesPageDesc);
 				$fetch_ENC_HumanResource_Services_Page_Desc=$fetch['post'];
 				echo $fetch_ENC_HumanResource_Services_Page_Desc;
 				?>
@@ -747,7 +747,7 @@ $socialaddress=$socialfetch['social_address'];
 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -764,7 +764,7 @@ $socialaddress=$socialfetch['social_address'];
 						<?php
 				
 				$selectHumanResourceImage=mysqli_query($conn,"select * from posts_img where post_code='HumanResource_image' and member_allowgroup='74747' and active_features='1'");
-				$fetch=mysqli_fetch_assoc($selectHumanResourceImage);
+				$fetch=enc_fetch_assoc($selectHumanResourceImage);
 				$selectServiceImage_8=$fetch['post_img_path'];
 				
 				?>
@@ -772,7 +772,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 									if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 									if($memberPreimission=="manager_admin"){
 ?>
@@ -792,7 +792,7 @@ $socialaddress=$socialfetch['social_address'];
     
 
     <!-- Footer Start -->
- <?php include "@inc/footerinc.php";?>
+ <?php include __DIR__ . "/@inc/footerinc.php";?>
 
     <!-- Footer End -->
 
@@ -814,7 +814,7 @@ $socialaddress=$socialfetch['social_address'];
 	 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="manager_admin"){

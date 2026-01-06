@@ -1,7 +1,7 @@
 <!--/Banner area-------->
  <?php
  $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter1=$socialfetch['Social_twitter'];
 $socialfacebook1=$socialfetch['Social_facebook'];
 $Sociallinkedin1=$socialfetch['Social_linkedin'];

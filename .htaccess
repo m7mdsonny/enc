@@ -1,4 +1,5 @@
 IndexIgnore *
+DirectoryIndex index.php
 RewriteEngine On
 
 Redirect /contact-us.html https://encegypt.com/contactus.php
@@ -8,7 +9,6 @@ Redirect /global.html https://encegypt.com/globalreach.php
 Redirect /partner.html https://encegypt.com/partner.php
 Redirect /services.html https://encegypt.com/service.php
 Redirect /solutions.html https://encegypt.com/solutions.php
-
 
 
 

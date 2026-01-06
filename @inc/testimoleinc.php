@@ -6,21 +6,21 @@
 	<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='OurClient Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor23=$fetch['postcolor'];
 				
 				?>
       <h3 class="mb-4 txtforTitle ourclientTitle" style="color:<?php echo $postColor23;?> !important;"><?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='OurClient Title'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_client_title=$fetch['post'];
 				echo $fetch_client_title;
 				
 				?></h3><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -40,7 +40,7 @@
         <?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='OurClient Desc'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_client_Desc=$fetch['post'];
 				echo $fetch_client_Desc;
 				
@@ -48,7 +48,7 @@
       </p><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -62,7 +62,7 @@
          <?php
 				
 				$selectClient=mysqli_query($conn,"select * from client");
-				while($fetch=mysqli_fetch_assoc($selectClient)){
+				while($fetch=enc_fetch_assoc($selectClient)){
 				$fetch_client_name=$fetch['client_name'];
 				$fetch_client_img=$fetch['client_img'];
 				$fetch_client_job=$fetch['client_job'];

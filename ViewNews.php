@@ -1,5 +1,5 @@
  <?php
-include '@inc/conn.php';
+include __DIR__ . '/@inc/conn.php';
 session_start();
 if(isset($_SESSION['email'])){
 $email=$_SESSION['email'];
@@ -7,7 +7,7 @@ $membername=$_SESSION['member_name'];
 $passcode=$_SESSION['member_passcode'];
 }
 $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter=$socialfetch['Social_twitter'];
 $socialfacebook=$socialfetch['Social_facebook'];
 $Sociallinkedin=$socialfetch['Social_linkedin'];
@@ -54,22 +54,22 @@ $socialaddress=$socialfetch['social_address'];
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<?php include "@inc/header_news.php";?>
+<?php include __DIR__ . "/@inc/header_news.php";?>
 
         
     <!-- Topbar End -->
 <div id="partner"> 
     
 <?php
- include "@inc/Clientbanner.php";
+ include __DIR__ . "/@inc/Clientbanner.php";
 ?>
 <hr>
 <?php
- include "@inc/Partnerbanner.php";
+ include __DIR__ . "/@inc/Partnerbanner.php";
 ?>
     </div>
     <!-- Navbar Start -->
-	      <?php include "@inc/sidebarcommunicte.php";?>
+	      <?php include __DIR__ . "/@inc/sidebarcommunicte.php";?>
 
     <!-- Navbar End -->
 
@@ -87,21 +87,21 @@ $socialaddress=$socialfetch['social_address'];
 		 <?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='News Title'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor51=$fetch['postcolor'];
 				
 				?>
             <h1 class="display-5 mb-0 txtforTitle newstitle" style="color:<?php echo $postColor51;?> !important;"><?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='News Title'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_news_title=$fetch['post'];
 				echo $fetch_news_title;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -117,7 +117,7 @@ $socialaddress=$socialfetch['social_address'];
 		<?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from news");
-				while($fetch=mysqli_fetch_assoc($selectFeaturesIntro)){
+				while($fetch=enc_fetch_assoc($selectFeaturesIntro)){
 				$news_day=$fetch['news_day'];
 				$news_month=$fetch['news_month'];
 				$news_year=$fetch['news_year'];
@@ -136,7 +136,7 @@ $socialaddress=$socialfetch['social_address'];
 					<?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='News Background'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor52=$fetch['postcolor'];
 				
 				?>
@@ -161,7 +161,7 @@ $socialaddress=$socialfetch['social_address'];
         </div>
 
     </div>
-	 <?php include "@inc/footerinc.php";?>
+	 <?php include __DIR__ . "/@inc/footerinc.php";?>
 
     <!-- Footer End -->
 

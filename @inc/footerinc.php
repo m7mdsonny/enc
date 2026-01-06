@@ -1,7 +1,7 @@
     <!-- Footer Start -->
 	 <?php
  $selectSocial=mysqli_query($conn,"select * from socialmedia where (social_id='1')");
-$socialfetch=mysqli_fetch_assoc($selectSocial);
+$socialfetch=enc_fetch_assoc($selectSocial);
 $socialtwitter2=$socialfetch['Social_twitter'];
 $socialfacebook2=$socialfetch['Social_facebook'];
 $Sociallinkedin2=$socialfetch['Social_linkedin'];
@@ -14,7 +14,7 @@ $socialaddress2=$socialfetch['social_address'];
   <?php
 				
 				$selectabouttitle=mysqli_query($conn,"select * from posts where post_code='Footer Intro'");
-				$fetch=mysqli_fetch_assoc($selectabouttitle);
+				$fetch=enc_fetch_assoc($selectabouttitle);
 				$postColor25=$fetch['postcolor'];
 				
 				?>
@@ -25,14 +25,14 @@ $socialaddress2=$socialfetch['social_address'];
                 <h1 class="display-5 mb-4 txtfooter"><?php
 				
 				$selectFeaturesIntro=mysqli_query($conn,"select * from posts where post_code='Footer Intro'");
-				$fetch=mysqli_fetch_assoc($selectFeaturesIntro);
+				$fetch=enc_fetch_assoc($selectFeaturesIntro);
 				$fetch_footer_Intro=$fetch['post'];
 				echo $fetch_footer_Intro;
 				
 				?></h1><?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="manager_admin"){
@@ -106,7 +106,7 @@ $socialaddress2=$socialfetch['social_address'];
         <p class="m-0">&copy; <a class="text-secondary border-bottom" href="#">ENC</a>. All Rights Reserved. Designed & Developed by 
 		   <?php
 				$selectDevPageTitle=mysqli_query($conn,"select * from developer");
-				$fetch=mysqli_fetch_assoc($selectDevPageTitle);
+				$fetch=enc_fetch_assoc($selectDevPageTitle);
 				$dev_name=$fetch['dev_name'];
 				$fetch_ENC_Developer_href_Page_Title=$fetch['dev_href'];
 				
@@ -118,7 +118,7 @@ Eng-Mohamed Hany</a>
 			<?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 				if($memberPreimission=="Developer"){
@@ -135,7 +135,7 @@ Eng-Mohamed Hany</a>
 		 <?php
 				if(isset($email)){
 				$selectmember=mysqli_query($conn,"select * from member where (member_mail='".$email."')");
-				$memberfetch=mysqli_fetch_assoc($selectmember);
+				$memberfetch=enc_fetch_assoc($selectmember);
 				$memberPreimission=$memberfetch['member_group'];
 				
 								if($memberPreimission=="Developer"){
